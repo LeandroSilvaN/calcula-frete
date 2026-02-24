@@ -46,10 +46,6 @@ form input {
     outline: none;
 }
 
-.nome {
-    width: 20%;
-}
-
 .btn {
     background-color: var(--cor-btn);
     color: var(--cor-primaria);
@@ -58,4 +54,5 @@ form input {
 .btn:hover {
     background-color: var(--btn-hover);
     color: var(--cor-borda);
+
 }
