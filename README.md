@@ -52,4 +52,4 @@ Projeto criado para praticar:
 
 Acesse o projeto publicado no GitHub Pages:
 
-🔗 <a href="https://leandrosilva.github.io/calcula-frete/">Calcula Frete</a>
+🔗 <a href="https://leandrosilvan.github.io/calcula-frete">Calcula Frete</a>
