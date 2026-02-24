@@ -45,3 +45,11 @@ Projeto criado para praticar:
 ✔ Cálculo automático do frete  
 ✔ Exibição detalhada do valor final  
 ✔ Aplicação dinâmica de desconto  
+
+---
+
+## 🌐 Deploy Online
+
+Acesse o projeto publicado no GitHub Pages:
+
+🔗 <a href="https://leandrosilva.github.io/calcula-frete/">Calcula Frete</a>
