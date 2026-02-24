@@ -1,0 +1,59 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Calculadora de Frete</title>
+	<link rel="shortcut icon" href="https://img.icons8.com/papercut/60/truck.png" type="image/x-icon">
+	<link rel="stylesheet" href="styles/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<header>
+		<h1>
+			<img width="32" height="32" src="https://img.icons8.com/papercut/60/truck.png" alt="truck" />
+			<strong>Calculadora de Frete</strong>
+		</h1>
+	</header>
+	<main>
+		<form name="formulario" onsubmit="calcularFrete(event)">
+			<span>Nome:</span> <input type="text" name="nome" class="nome" /><br /><br />
+
+			<span>Peso:</span> <input type="number" name="kg" /><br /><br />
+
+			<span>Distância:</span> <input type="number" name="km" /><br /><br />
+
+			<span>É cliente fidelidade?</span> <br />
+			<input type="radio" name="fidelidade" value="Sim" />Sim<br />
+			<input type="radio" name="fidelidade" value="Não" />Não<br /><br />
+
+			<input class="btn" type="submit" value="Enviar" />
+
+		</form>
+	</main>
+	<script>
+		function calcularFrete(event) {
+			event.preventDefault();
+
+			// pegar valores do formulário
+			let nome = document.forms["formulario"]["nome"].value;
+			let kg = document.forms["formulario"]["kg"].value;
+			let km = document.forms["formulario"]["km"].value;
+			let fidelidade = document.forms["formulario"]["fidelidade"].value;
+
+			// validar se existem campos vazios
+			if (nome === "" || kg === "" || km === "" || fidelidade === "") {
+				alert("Preencha todos os campos!");
+				return false;
+			}
+
+			// enviar dados para frete.html
+			let url = `frete.html?nome=${encodeURIComponent(nome)}&peso=${encodeURIComponent(kg)}&distancia=${encodeURIComponent(km)}&fidelidade=${encodeURIComponent(fidelidade)}`;
+			window.location.href = url;
+
+		}
+	</script>
+
+</body>
+
+</html>

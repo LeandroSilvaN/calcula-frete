@@ -1,0 +1,61 @@
+:root {
+    --cor-fundo: #c3c49e;
+    --fundo-titulo: #D35269;
+    --cor-primaria: #EAF6FF;
+    --cor-secundaria: #232528;
+    --cor-borda: #2A2A72;
+    --cor-btn: #D35269;
+    --btn-hover: #759FBC;
+}
+
+
+body {
+    background-color: var(--cor-fundo);
+    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+    color: var(--cor-secundaria);
+    text-align: center;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    background-color: var(--fundo-titulo);
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+form input {
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    font-size: 1em;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.nome {
+    width: 20%;
+}
+
+.btn {
+    background-color: var(--cor-btn);
+    color: var(--cor-primaria);
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+    color: var(--cor-borda);
+}

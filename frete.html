@@ -1,0 +1,97 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Calculo do Frete</title>
+	<link rel="stylesheet" href="styles/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="mostrarFrete()">
+	<header>
+		<h1>Dados do Cliente</h1>
+	</header>
+	<main id="frete">
+
+	</main>
+	</center>
+	<script>
+		function mostrarFrete() {
+
+			// receber dados do index.html
+			const params = new URLSearchParams(window.location.search);
+
+			// pegar dados do formulário
+			const nome = params.get("nome").toUpperCase();
+			const kg = params.get("peso");
+			const km = params.get("distancia");
+			const fidelidade = params.get("fidelidade");
+
+			// calcular peso
+			let calcularKG = kg * 5;
+
+			let calcularKM = 0;
+
+			// calcular distância
+			if (km <= 100) {
+				calcularKM = parseFloat(km);
+			} else if (km >= 101 && km <= 300) {
+				calcularKM = parseFloat(km * 1.15);
+			} else if (km > 300) {
+				calcularKM = parseFloat(km * 1.30);
+			} else {
+				calcularKM = parseFloat(km);
+			}
+
+			// somar peso e distância
+			let calculoFrete = calcularKG + calcularKM;
+
+
+			if (fidelidade === "Sim") {
+				// aplicar desconto
+				let descontoFidelidade = calculoFrete * 0.10;
+				let total = calculoFrete - descontoFidelidade;
+
+				//  mostrar dados
+				document.getElementById("frete").innerHTML = `
+					<p><strong>Nome: </strong>${nome}</p>
+					<p><strong>Peso: </strong>${kg} Kg</p>
+					<p><strong>Distância: </strong>${km} Km</p>
+					<p><strong>Cliente Fidelidade: </strong>${fidelidade}</p>
+					<br/>
+					<h2>Valor de Frete</h2>
+					<p><strong>Frete = </strong>R$ ${calculoFrete.toFixed(2)}</p>
+					<p><strong>Desconto Cliente Fidelidade = </strong>R$ -${descontoFidelidade.toFixed(2)}</p>
+					-------------------------------------------------------
+					<br/>
+					<p><strong>Valor à pagar = </strong>R$ ${total.toFixed(2)}</p>
+					`;
+			} else {
+				//  declarar total
+				let total = calculoFrete;
+
+				//  mostrar dados
+				document.getElementById("frete").innerHTML = `
+					<p><strong>Nome: </strong>${nome}</p>
+					<p><strong>Peso: </strong>${kg} Kg</p>
+					<p><strong>Distância: </strong>${km} Km</p>
+					<p><strong>Cliente Fidelidade: </strong>${fidelidade}</p>
+					<br/>
+					<h2>Valor de Frete</h2>
+					<p><strong>Frete = </strong>R$ ${calculoFrete.toFixed(2)}</p>
+					<p><strong>Desconto Cliente Fidelidade = </strong>Não possui</p>
+					-------------------------------------------------------
+					<br/>
+					<p><strong>Valor à pagar = </strong>R$ ${total.toFixed(2)}</p>
+					<em style="color: red; font-size: 24px; background-color: yellow; border-radius: 0.2em; padding: 0.4em;">Seja <strong>cliente fidelidade</strong> e garanta 10% por frete!</em>
+					`;
+
+			}
+
+		}
+
+	</script>
+
+</body>
+
+</html>
